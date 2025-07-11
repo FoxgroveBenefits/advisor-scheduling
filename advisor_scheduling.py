@@ -28,24 +28,33 @@ st.write(f"**Salesforce ID:** {client_sfid}")
 
 st.markdown("---")
 
-# Calendly scheduling buttons
+# Calendly scheduling buttons using HTML
 st.header("📅 Advisor Internal Scheduling Page")
 st.write("Click the event you wish to schedule for your client:")
 
-col1, col2, col3 = st.columns(3)
+# Create HTML-styled buttons
+button_html = """
+<style>
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #0072ce;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 10px;
+}
+.button:hover {
+    background-color: #005bb5;
+}
+</style>
 
-with col1:
-    if st.button("30 Min Meeting"):
-        calendly_link = "https://calendly.com/aaronmacd/30-min-meeting-private"
-        st.markdown(f"[Click here to open the 30 Min Meeting Calendly link.]({calendly_link})", unsafe_allow_html=True)
+<a href="https://calendly.com/aaronmacd/30-min-meeting-private" target="_blank" class="button">📅 30 Min Meeting</a>
+<a href="https://calendly.com/aaronmacd/60-min-meeting-private" target="_blank" class="button">📅 60 Min Meeting</a>
+<a href="https://calendly.com/aaronmacd/group-renewal-meeting-private" target="_blank" class="button">📅 Group Renewal Meeting</a>
+"""
 
-with col2:
-    if st.button("60 Min Meeting"):
-        calendly_link = "https://calendly.com/aaronmacd/60-min-meeting-private"
-        st.markdown(f"[Click here to open the 60 Min Meeting Calendly link.]({calendly_link})", unsafe_allow_html=True)
-
-with col3:
-    if st.button("Group Renewal Meeting"):
-        calendly_link = "https://calendly.com/aaronmacd/group-renewal-meeting-private"
-        st.markdown(f"[Click here to open the Group Renewal Meeting Calendly link.]({calendly_link})", unsafe_allow_html=True)
-
+st.markdown(button_html, unsafe_allow_html=True)
