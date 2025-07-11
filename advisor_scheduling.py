@@ -40,15 +40,17 @@ button_html = """
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: #ffffff !important;
     background-color: #0072ce;
     border: none;
     border-radius: 8px;
     text-decoration: none;
     margin: 10px;
+    text-align: center;
 }
 .button:hover {
     background-color: #005bb5;
+    color: #ffffff !important;
 }
 </style>
 
