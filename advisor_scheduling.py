@@ -34,10 +34,15 @@ st.write("Click the event you wish to schedule for your client:")
 
 import urllib.parse
 
+# Ensure phone number starts with '1'
+clean_phone = client_phone.strip()
+if clean_phone and not clean_phone.startswith("1"):
+    clean_phone = "1" + clean_phone
+
 # Encode parameters for URL
 encoded_name = urllib.parse.quote(client_name)
 encoded_email = urllib.parse.quote(client_email)
-encoded_phone = urllib.parse.quote(client_phone)
+encoded_phone = urllib.parse.quote(clean_phone)
 
 # Build dynamic Calendly URLs
 calendly_30 = f"https://calendly.com/aaronmacd/30-min-meeting-private?name={encoded_name}&email={encoded_email}&a1={encoded_phone}"
